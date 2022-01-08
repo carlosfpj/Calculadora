@@ -14,12 +14,20 @@ html {
   color: #fff;
 }
 
+.all-clear:hover {
+  background-color: #f17377;
+}
+
 button {
   font-size: 35px;
   border-radius: 3px;
   border: 1px solid #c4c4c4;
   background-color: transparent;
   color: #333
+}
+
+button:hover {
+  background-color: #eaeaea;
 }
 
 
@@ -36,9 +44,10 @@ button {
 .display {
   background-color: #000000;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 35px;
   text-align: right;
-  height: 50px;
+  height: 60px;
+  padding: 10px 10px;
 }
 
 .equal {
@@ -50,6 +59,10 @@ button {
   height: 100%;
   grid-column-start: 4;
   grid-column-end: 4;
+}
+
+.equal:hover {
+  background-color: #4e9ed4;
 }
 
 .grid-buttons {
