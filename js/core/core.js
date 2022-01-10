@@ -1,5 +1,8 @@
 let valueDisplay = []
-let firstValue, secondValue, operador
+let firstValue
+let secondValue
+let operador = ""
+let result
 let waitSecondValue = false
 let firstStringValue = ""
 let secondStringValue = ""
@@ -15,8 +18,7 @@ export default function init() {
 function handleButtonClick(event) {
   if(event.currentTarget.className === "number" || event.currentTarget.className === "decimal") {
     if(!waitSecondValue) {
-      firstNumber(event)
-      saveFirstValue(event, firstStringValue)
+      saveFirstValue(event)
     } else {
       saveSecondValue(event)
     }
@@ -24,13 +26,10 @@ function handleButtonClick(event) {
     waitSecondValue = true
     operador = event.currentTarget.value
     showOnDisplay(operador)
-      console.log("oprimiste el operador: " + event.currentTarget.value + " de tipo " + typeof(operador));
   } else if (event.currentTarget.className === "equal") {
-      console.log("oprimiste el operador igual");
       const result = performOperation()
       showOnDisplay(result)
   } else if (event.currentTarget.className === "all-clear") {
-      console.log("oprimiste all clear");
       allClear()
   }
 }
@@ -45,13 +44,9 @@ function allClear() {
   showOnDisplay(0)
 }
 
-function firstNumber(numberClicked) {
-  firstStringValue = firstStringValue + numberClicked.target.value
-  return firstStringValue
-}
-
-function saveFirstValue(event, stringValue) {
-  firstValue = Number(stringValue)
+function saveFirstValue(event) {
+  firstStringValue = firstStringValue + event.target.value
+  firstValue = Number(firstStringValue)
   console.log("el primer número es: " + firstValue + " de tipo " + typeof(firstValue))
   showOnDisplay(firstValue)
   return firstValue
@@ -73,12 +68,20 @@ function showOnDisplay(value) {
 function performOperation() {
   switch (operador) {
     case "+":
-      return firstValue + secondValue
+      result = firstValue + secondValue
+      firstValue = result
+      return result
     case "-":
-      return firstValue - secondValue
+      result = firstValue - secondValue
+      firstValue = result
+      return result
     case "*":
-      return firstValue * secondValue
+      result = firstValue * secondValue
+      firstValue = result
+      return result
     case "/":
-      return firstValue / secondValue
+      result = firstValue / secondValue
+      firstValue = result
+      return result
   }
 }
