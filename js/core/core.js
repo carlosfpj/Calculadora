@@ -25,9 +25,11 @@ function handleButtonClick(event) {
   } else if (event.currentTarget.className === "operator") {
     waitSecondValue = true
     operador = event.currentTarget.value
+    secondStringValue = ""
     showOnDisplay(operador)
   } else if (event.currentTarget.className === "equal") {
       const result = performOperation()
+
       showOnDisplay(result)
   } else if (event.currentTarget.className === "all-clear") {
       allClear()
