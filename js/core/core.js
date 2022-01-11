@@ -2,7 +2,7 @@ let valueDisplay = []
 let firstValue
 let secondValue
 let operador = ""
-let result
+let result = 0
 let waitSecondValue = false
 let firstStringValue = ""
 let secondStringValue = ""
@@ -29,7 +29,6 @@ function handleButtonClick(event) {
     showOnDisplay(operador)
   } else if (event.currentTarget.className === "equal") {
       const result = performOperation()
-
       showOnDisplay(result)
   } else if (event.currentTarget.className === "all-clear") {
       allClear()
